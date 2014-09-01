@@ -4,7 +4,8 @@
   .form-inputs
     = f.association :course
     = f.association :user
-    = f.input :role
+    = f.label :role
+    = f.select :role, options_for_select(CourseUser.roles.collect{|key,_| key})
 
   .form-actions
     = f.button :submit
