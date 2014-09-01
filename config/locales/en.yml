@@ -21,3 +21,5 @@
 
 en:
   hello: "Hello world"
+  non_teacher_student_notice: "You must be a student or teacher of this course to accees it"
+  non_teacher_notice: "You must be a teacher to do this action"

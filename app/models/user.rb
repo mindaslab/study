@@ -7,4 +7,12 @@ class User < ActiveRecord::Base
   def to_s
   	self.email
   end
+
+  def studies? course
+  	CourseUser.student.where(user: self, course: course).first
+  end
+
+  def teaches? course
+  	CourseUser.teacher.where(user: self, course: course).first
+  end
 end
