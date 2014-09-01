@@ -1,3 +1,4 @@
 class Course < ActiveRecord::Base
-	validates :name, :description, :syllabus, presence: true
+  has_many :chapters
+  validates :name, :description, :syllabus, presence: true
 end
