@@ -1,4 +1,7 @@
 class CoursesController < ApplicationController
+  before_filter :authenticate_user!
+  before_filter :must_be_student_or_teacher, only: [:index, :show]
+  before_filter :must_be_teacher, only: [:edit, :update, :create, :destroy]
   before_action :set_course, only: [:show, :edit, :update, :destroy]
 
   # GET /courses
@@ -70,5 +73,11 @@ class CoursesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def course_params
       params.require(:course).permit(:name, :description, :syllabus)
+    end
+
+    def must_be_student_or_teacher
+    end
+
+    def must_be_teacher
     end
 end

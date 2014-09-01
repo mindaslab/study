@@ -1,0 +1,23 @@
+%h1 Listing course_users
+
+%table
+  %tr
+    %th Course
+    %th User
+    %th Role
+    %th
+    %th
+    %th
+
+  - @course_users.each do |course_user|
+    %tr
+      %td= course_user.course
+      %td= course_user.user
+      %td= course_user.role
+      %td= link_to 'Show', course_user
+      %td= link_to 'Edit', edit_course_user_path(course_user)
+      %td= link_to 'Destroy', course_user, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Course user', new_course_user_path
