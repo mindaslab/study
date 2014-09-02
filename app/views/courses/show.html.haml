@@ -8,6 +8,7 @@
       %h2 Chapters
       - if current_user.teaches? @course
         = link_to "New Chapter", new_course_chapter_path(@course), class: "btn btn-success"
+      %ul= render @course.chapters
     .col-md-6
       %h2 Syllabus
       = @course.syllabus

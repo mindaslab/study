@@ -1,7 +1,6 @@
 .container-fluid
   %h1= @chapter.name
+  .actions
+    - if current_user.teaches? @chapter.course
+      = link_to "Edit", edit_course_chapter_path(@course, @chapter), class: "btn btn-warning"
   %p= @chapter.content
-
-= link_to 'Edit', edit_course_chapter_path(@course, @chapter)
-\|
-= link_to 'Back', course_chapters_path(@chapter)
