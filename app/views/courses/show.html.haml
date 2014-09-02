@@ -1,15 +1,13 @@
-%p#notice= notice
-
-%p
-  %b Name:
-  = @course.name
-%p
-  %b Description:
-  = @course.description
-%p
-  %b Syllabus:
-  = @course.syllabus
-
-= link_to 'Edit', edit_course_path(@course)
-\|
-= link_to 'Back', courses_path
+.container-fluid
+  %h1= @course.name
+  .actions
+    = link_to 'Edit', edit_course_path(@course), class: "btn btn-warning"
+  %p= @course.description
+  .row
+    .col-md-6
+      %h2 Chapters
+      - if current_user.teaches? @course
+        = link_to "New Chapter", new_course_chapter_path(@course), class: "btn btn-success"
+    .col-md-6
+      %h2 Syllabus
+      = @course.syllabus

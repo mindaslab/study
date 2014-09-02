@@ -1,7 +1,8 @@
-%h1 Editing chapter
+.container-fluid
+	%h1 Editing chapter
 
-= render 'form'
+	= render 'form'
 
-= link_to 'Show', @chapter
-\|
-= link_to 'Back', chapters_path
+	= link_to 'Show', course_chapter_path(@course, @chapter)
+	\|
+	= link_to 'Back', course_chapters_path(@course)

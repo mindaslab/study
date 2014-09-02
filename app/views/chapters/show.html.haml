@@ -10,6 +10,6 @@
   %b Course:
   = @chapter.course
 
-= link_to 'Edit', edit_chapter_path(@chapter)
+= link_to 'Edit', edit_course_chapter_path(@course, @chapter)
 \|
-= link_to 'Back', chapters_path
+= link_to 'Back', course_chapters_path(@chapter)
