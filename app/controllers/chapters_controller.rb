@@ -1,7 +1,8 @@
 class ChaptersController < ApplicationController
   before_action :set_course
   before_action :set_chapter, only: [:show, :edit, :update, :destroy]
-
+  before_filter :must_be_student_or_teacher, only: [:show]
+  before_filter :must_be_teacher, only: [:edit, :update, :create, :destroy]
 
   # GET /chapters/1
   # GET /chapters/1.json
@@ -72,4 +73,6 @@ class ChaptersController < ApplicationController
     def set_course
       @course = Course.find params[:course_id]
     end
+
+    include CheckUserRights
 end
